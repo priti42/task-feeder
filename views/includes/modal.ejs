@@ -4,10 +4,11 @@
     </head>
 
     <body>
-        <%- include('../includes/loader.ejs') %>
 
 <div id="myModal" class="modal">
     <div class="modal-content"><span class="close">&times;</span>
+
+    <% if(tasks.length > 0) { %>
 
     <% for(let task of tasks) { %>
         <article class="card product-item">
@@ -30,6 +31,13 @@
             </div>
         </article>
         <% } %>
+    <% } else { %>
+        <div class="card__content">
+            <h4 class="product__price"> No Task Found: 
+            </h4>
+        </div>
+    <% } %>
+
     </div>
 </div>
 <script>

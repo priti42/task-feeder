@@ -3,7 +3,6 @@
         <button id="side-menu-toggle">Menu</button>
         <nav class="main-header__nav">
             <ul class="main-header__item-list">
-                <% if(userType == "user"){ %>
                 <% if(isAuth) { %>
                     <li class="main-header__item">
                         <a href="/">Dashboard</a>
@@ -24,17 +23,6 @@
                         <a class="<%= path === '/login' ? 'active' : '' %>" href="/login">login</a>
                     </li>
                 <% } %>
-                <% } %>
-
-                <% if(userType == "admin"){ %>
-                    <% if(isAuth) { %>
-
-                        <li class="main-header__item">
-                            <a class="<%= path === '/users/logout' ? 'active' : '' %>" href="/users/logout">Logout</a>
-                        </li>           
-
-                        <% } %>
-                        <% } %>
         
             </ul>
         </nav>
