@@ -1,0 +1,30 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <%- include('../includes/loader.ejs') %>
+
+        <main>
+        <h1 style="text-align: center ;">Task Details</h1>
+
+<form action="<%= taskId ? '/users/updateUserTask' : '/users/createTask' %>" method="post">
+    <div class="form-control">
+        <label for="taskName">Task Name</label>
+        <input type="text" name="taskName" id="taskName" value="<%= taskname %>">
+    </div>
+    <div class="form-control">
+        <label for="taskDescription">Task Description</label>
+        <input type="text" name="taskDescription" id="taskDescription" value="<%= taskdescription %>">
+    </div>
+        <input type="text" hidden name="taskId" id="taskid" value="<%= taskId %>">
+    <div class="form-control">
+        <label for="taskDate">Date & Time</label>
+        <input type="datetime-local" name="taskDate" min=`${new Date().toISOString().split('T')[0]}` id="taskDate" value="<%= taskdate %>">
+    </div>
+    <button class="btn" type="submit"> Submit</button>
+</form>
+</main>
+
+<%- include('../includes/end.ejs') %>

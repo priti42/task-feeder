@@ -1,0 +1,40 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <% if (tasks.length > 0) { %>
+                    <div class="grid">
+                        <% for (let task of tasks) { %>
+                            <article class="card product-item">
+                                <header class="card__header">
+                                    <h1 class="product__title">Task Name:
+                                        <%= task.taskname %>
+                                    </h1>
+                                </header>
+                               
+                                <div class="card__content">
+                                    <h4 class="product__price"> Description: 
+                                        <%= task.taskdescription %>
+                                    </h4>
+                                    <p class="product__description"> Date: 
+                                        <%= task.taskdate %>
+                                    </p>
+                                    <span style="padding: 10px; text-align: left;">
+                                        <a href="/task-page?taskId=<%= task.id %>">Edit Task</a>
+                                    </span>
+                                    <span style="padding: 10px; text-align: right;">
+                                        <a href="/users/deleteUserTask?taskId=<%= task.id %>">Delete Task</a>
+                                    </span>
+                                </div>
+                            </article>
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h1>No Tasks Found!</h1>
+                        <% } %>
+            </main>
+            <%- include('../includes/end.ejs') %>

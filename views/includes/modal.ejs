@@ -1,0 +1,37 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/modal.css">
+<link rel="stylesheet" href="/css/product.css">
+    </head>
+
+    <body>
+        <%- include('../includes/loader.ejs') %>
+
+<div id="myModal" class="modal">
+    <div class="modal-content"><span class="close">&times;</span>
+
+    <% for(let task of tasks) { %>
+        <article class="card product-item">
+            <header class="card__header">
+                <h1 class="product__title">Task Name:
+                    <%= task.taskname %>
+                </h1>
+                <p>
+                    <b>Form ID: <%= task.taskId %></b>
+                </p>
+            </header>
+           
+            <div class="card__content">
+                <h4 class="product__price"> Description: 
+                    <%= task.taskdescription %>
+                </h4>
+                <p class="product__description"> Date: 
+                    <%= task.taskdate %>
+                </p>
+            </div>
+        </article>
+        <% } %>
+    </div>
+</div>
+<script>
+
+</script>
