@@ -20,7 +20,7 @@ const deleteOldTaskCron = () => {
         Model.Task.destroy({
             where: {
                 taskdate: {
-                    [Op.gt]: new Date()
+                    [Op.lt]: new Date()
                 }
             }
         })
